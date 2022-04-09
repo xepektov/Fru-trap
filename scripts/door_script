@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class door_script : MonoBehaviour
+{
+
+    public GameObject hat;
+    public GameObject gamemanager;
+
+    float dist;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        dist = Vector3.Distance(this.gameObject.transform.position , hat.transform.position);
+
+        if(dist < 1f){
+       
+            if(Input.GetKeyDown("e")){
+
+                gamemanager.GetComponent<game_manager_script>().near_door();
+                hat.GetComponent<hat_sound_script>().door_opened();
+            
+            }
+        }
+    }
+}
